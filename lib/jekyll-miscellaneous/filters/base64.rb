@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "base64"
-# frozen_string_literal: true
 
 module JekyllMiscellaneous
   module Filters
@@ -17,4 +16,4 @@ module JekyllMiscellaneous
   end
 end
 
-Liquid::Template.register_filter(Base64Filter)
+Liquid::Template.register_filter(JekyllMiscellaneous::Filters::Base64Filter)

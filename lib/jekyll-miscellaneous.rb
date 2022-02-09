@@ -1,6 +1,7 @@
-require "jekyll"
-require_relative "jekyll-miscellaneous/version"
-require_relative "jekyll-miscellaneous/tag"
-
-module JekyllMiscellaneous
-end
+require 'jekyll'
+require_relative 'jekyll-miscellaneous/version'
+require_relative 'jekyll-miscellaneous/filters/base64'
+require_relative 'jekyll-miscellaneous/filters/hash_color'
+require_relative 'jekyll-miscellaneous/filters/regex_replace'
+require_relative 'jekyll-miscellaneous/filters/truncate'
+require_relative 'jekyll-miscellaneous/filters/uri_encode'

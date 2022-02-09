@@ -4,7 +4,7 @@ module JekyllMiscellaneous
   module Filters
     module HashColorFilter
       def hash_color(input)
-        "hsl(#{hash_code(input) % 360},  100%, 90%)"
+        "hsl(#{hash_code(input) % 360}, 100%, 90%)"
       end
 
       private
