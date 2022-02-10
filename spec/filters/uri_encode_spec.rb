@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe JekyllMiscellaneous::Filters::URIEncodeFilter do
@@ -5,8 +7,8 @@ describe JekyllMiscellaneous::Filters::URIEncodeFilter do
   let(:decoded) { 'foo' }
   let(:encoded) { 'candy' }
 
-  context "#base64_encode" do
-    let(:content)  { "{{ '#{decoded}' | uri_encode }}" }
+  context '#base64_encode' do
+    let(:content) { "{{ '#{decoded}' | uri_encode }}" }
 
     before { allow(URI).to receive(:encode_www_form_component).with(decoded) { encoded } }
 

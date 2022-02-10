@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 require 'liquid'
+require 'nokogiri'
 require 'jekyll-miscellaneous'
 
 RSpec.configure do |config|
@@ -7,6 +10,6 @@ RSpec.configure do |config|
 
   def render_liquid(content)
     template = Liquid::Template.parse(content)
-    template.render()
+    template.render
   end
 end
