@@ -12,6 +12,9 @@ module JekyllMiscellaneous
       # == Returns:
       # The URI encoded string.
       #
+      # == Example:
+      #   uri_encode('Hello, World!')
+      #   # => "Hello%2C%20World%21"
       def uri_encode(input)
         URI.encode_www_form_component(input)
       end

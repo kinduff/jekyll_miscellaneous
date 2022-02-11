@@ -12,6 +12,9 @@ module JekyllMiscellaneous
       # == Returns:
       # The hexadecimal color code of the hash.
       #
+      # == Example:
+      #   hash_color('Hello, World!')
+      #   # => "#f5f5f5"
       def hash_color(input)
         hash = 0
         input.each_byte { |c| hash = c + ((hash << 5) - hash) }

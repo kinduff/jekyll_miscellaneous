@@ -12,6 +12,9 @@ module JekyllMiscellaneous
       # == Returns:
       # The Base64 encoded string.
       #
+      # == Example:
+      #   base64_encode('Hello, World!')
+      #   # => "SGVsbG8sIFdvcmxkIQ=="
       def base64_encode(input)
         ::Base64.encode64(input)
       end
@@ -25,6 +28,9 @@ module JekyllMiscellaneous
       # == Returns:
       # The decoded string.
       #
+      # == Example:
+      #   base64_decode('SGVsbG8sIFdvcmxkIQ==')
+      #   # => "Hello, World!"
       def base64_decode(input)
         ::Base64.decode64(input)
       end

@@ -12,6 +12,10 @@ module JekyllMiscellaneous
       #
       # == Returns:
       # The document with the expression replaced.
+      #
+      # == Example:
+      #   =='Hello, World!'==
+      #   <mark>Hello, World!</mark>
       def self.process(doc)
         doc.content.gsub!(%r!==+(\w(.*?)?[^ .=]?)==+!, '<mark>\\1</mark>')
       end

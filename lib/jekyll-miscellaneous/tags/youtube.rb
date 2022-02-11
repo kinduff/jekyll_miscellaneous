@@ -20,6 +20,10 @@ module JekyllMiscellaneous
       #
       # == Returns:
       # Returns the HTML for the YouTube video.
+      #
+      # == Example:
+      #   {% youtube "https://www.youtube.com/watch?v=dQw4w9WgXcQ" %}
+      #   # => <div class="youtube-container"><iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"></iframe></div>
       def render(_context)
         "<div class='youtube-container'><iframe src=\"https://www.youtube-nocookie.com/embed/#{@id}\"></iframe></div>"
       end

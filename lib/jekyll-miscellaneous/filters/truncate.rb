@@ -23,6 +23,13 @@ module JekyllMiscellaneous
       # == Returns:
       # The truncated string.
       #
+      # == Example:
+      #   truncate('Hello, World!', 10)
+      #   # => "Hello, ..."
+      #   truncate('Hello, World!', 10, ',')
+      #   # => "Hello..."
+      #   truncate('Hello, World!', 10, ',', '!')
+      #   # => "Hello!"
       def truncate(input, truncate_at = 140, separator = nil, omission = '...')
         return input.dup unless input.length > truncate_at
 

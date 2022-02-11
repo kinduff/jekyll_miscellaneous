@@ -9,6 +9,7 @@ module JekyllMiscellaneous
       # Calls {.process_content} on the resource's content. If the resource is
       # an asset file, does nothing.
       #
+      # == Parameters:
       # resource::
       #   The resource to process.
       #
@@ -41,6 +42,7 @@ module JekyllMiscellaneous
       # - When the link contains an image.
       # - When the link has a the class +skip-external+.
       #
+      # == Parameters:
       # site_hostname::
       #   The hostname of the site.
       # content::
