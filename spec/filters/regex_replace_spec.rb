@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe JekyllMiscellaneous::Filters::RegexReplaceFilter do
+describe JekyllMiscellaneous::Filters::RegexReplace do
   let(:output) { render_liquid(content) }
 
   describe '#regex_replace' do

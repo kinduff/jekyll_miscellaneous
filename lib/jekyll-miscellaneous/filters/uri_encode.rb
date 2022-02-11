@@ -2,7 +2,7 @@
 
 module JekyllMiscellaneous
   module Filters
-    module URIEncodeFilter
+    module URIEncode
       def uri_encode(url)
         URI.encode_www_form_component(url)
       end
@@ -10,4 +10,4 @@ module JekyllMiscellaneous
   end
 end
 
-Liquid::Template.register_filter(JekyllMiscellaneous::Filters::URIEncodeFilter)
+Liquid::Template.register_filter(JekyllMiscellaneous::Filters::URIEncode)

@@ -2,7 +2,7 @@
 
 module JekyllMiscellaneous
   module Filters
-    module RegexReplaceFilter
+    module RegexReplace
       def regex_replace(input, regex, value)
         formatted_regex = /#{regex}/
         input.gsub(formatted_regex, value)
@@ -15,4 +15,4 @@ module JekyllMiscellaneous
   end
 end
 
-Liquid::Template.register_filter(JekyllMiscellaneous::Filters::RegexReplaceFilter)
+Liquid::Template.register_filter(JekyllMiscellaneous::Filters::RegexReplace)

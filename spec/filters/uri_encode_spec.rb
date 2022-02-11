@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe JekyllMiscellaneous::Filters::URIEncodeFilter do
+describe JekyllMiscellaneous::Filters::URIEncode do
   let(:output) { render_liquid(content) }
   let(:decoded) { 'foo' }
   let(:encoded) { 'candy' }

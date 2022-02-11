@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe JekyllMiscellaneous::Filters::Base64Filter do
+describe JekyllMiscellaneous::Filters::Base64 do
   let(:output) { render_liquid(content) }
   let(:decoded) { 'foo' }
   let(:encoded) { 'candy' }

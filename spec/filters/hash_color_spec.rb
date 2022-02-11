@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe JekyllMiscellaneous::Filters::HashColorFilter do
+describe JekyllMiscellaneous::Filters::HashColor do
   let(:output) { render_liquid(content) }
 
   describe '#hash_color' do

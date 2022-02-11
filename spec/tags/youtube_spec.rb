@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe JekyllMiscellaneous::Tags::YouTubeTag do
+describe JekyllMiscellaneous::Tags::YouTube do
   let(:output) { render_liquid(content) }
   let(:content) { '{% youtube dQw4w9WgXcQ %}' }
 

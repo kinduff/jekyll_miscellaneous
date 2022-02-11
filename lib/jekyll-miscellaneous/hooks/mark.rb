@@ -2,7 +2,7 @@
 
 module JekyllMiscellaneous
   module Hooks
-    module Mark
+    module MarkHook
       def self.process(doc)
         doc.content.gsub!(%r!==+(\w(.*?)?[^ .=]?)==+!, '<mark>\\1</mark>')
       end

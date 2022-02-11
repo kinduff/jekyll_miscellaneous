@@ -2,7 +2,7 @@
 
 module JekyllMiscellaneous
   module Filters
-    module HashColorFilter
+    module HashColor
       def hash_color(input)
         "hsl(#{hash_code(input) % 360}, 100%, 90%)"
       end
@@ -18,4 +18,4 @@ module JekyllMiscellaneous
   end
 end
 
-Liquid::Template.register_filter(JekyllMiscellaneous::Filters::HashColorFilter)
+Liquid::Template.register_filter(JekyllMiscellaneous::Filters::HashColor)

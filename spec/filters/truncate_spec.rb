@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe JekyllMiscellaneous::Filters::TruncateFilter do
+describe JekyllMiscellaneous::Filters::Truncate do
   let(:output) { render_liquid(content) }
 
   describe '#truncate' do

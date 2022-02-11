@@ -2,7 +2,7 @@
 
 module JekyllMiscellaneous
   module Filters
-    module TruncateFilter
+    module Truncate
       def truncate(input, truncate_at = 140, separator = nil, omission = '...')
         return input.dup unless input.length > truncate_at
 
@@ -19,4 +19,4 @@ module JekyllMiscellaneous
   end
 end
 
-Liquid::Template.register_filter(JekyllMiscellaneous::Filters::TruncateFilter)
+Liquid::Template.register_filter(JekyllMiscellaneous::Filters::Truncate)
