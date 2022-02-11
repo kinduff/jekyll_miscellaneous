@@ -6,6 +6,13 @@ require 'uri'
 module JekyllMiscellaneous
   module Hooks
     module ExternalLinks
+      # Processes the resource.
+      #
+      # resource::
+      #   The resource to process.
+      #
+      # == Returns:
+      # The processed resource.
       def self.process(resource)
         return if resource.data['layout'].nil?
 
@@ -21,6 +28,36 @@ module JekyllMiscellaneous
         )
       end
 
+      # Processes a string of content with Nokogiri. The content is processed
+      # with the given link selector. The links are checked to see if they
+      # match the site hostname. If they do not, the link is modified to
+      # include +rel="external"+ and +target="_blank"+.
+      #
+      # The links are modified to include +⧉+ (a unicode character) to indicate
+      # that they are external. Except:
+      #
+      # - When the link is a relative URL.
+      # - When the link contains an image.
+      # - When the link has a the class +skip-external+.
+      #
+      # site_hostname::
+      #   The hostname of the site.
+      # content::
+      #   The content to process.
+      # link_selector::
+      #   The CSS selector used to find links.
+      #
+      # == Returns
+      #
+      # site_hostname::
+      #   The hostname of the site.
+      # content::
+      #   The content to process.
+      # link_selector::
+      #   The CSS selector for the links.
+      #
+      # == Returns:
+      # The content with instances of +a+ HTML tags with new attributes.
       def self.process_content(site_hostname, content, link_selector)
         content = Nokogiri::HTML(content)
         content.css(link_selector).each do |a|
