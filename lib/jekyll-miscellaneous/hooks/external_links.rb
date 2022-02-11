@@ -6,7 +6,8 @@ require 'uri'
 module JekyllMiscellaneous
   module Hooks
     module ExternalLinks
-      # Processes the resource.
+      # Calls {.process_content} on the resource's content. If the resource is
+      # an asset file, does nothing.
       #
       # resource::
       #   The resource to process.
