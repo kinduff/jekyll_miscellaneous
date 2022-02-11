@@ -3,8 +3,6 @@
 require 'nokogiri'
 require 'uri'
 
-# frozen_string_literal: true
-
 module JekyllMiscellaneous
   module Hooks
     module ExternalLinks
@@ -43,6 +41,8 @@ module JekyllMiscellaneous
   end
 end
 
+# :nocov:
 Jekyll::Hooks.register [:documents, :pages], :post_render do |doc|
   JekyllMiscellaneous::Hooks::ExternalLinks.process(doc)
 end
+# :nocov:

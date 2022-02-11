@@ -2,7 +2,7 @@
 
 module JekyllMiscellaneous
   module Hooks
-    module MarkHook
+    module Mark
       def self.process(doc)
         doc.content.gsub!(%r!==+(\w(.*?)?[^ .=]?)==+!, '<mark>\\1</mark>')
       end
@@ -10,6 +10,8 @@ module JekyllMiscellaneous
   end
 end
 
-Jekyll::Hooks.register([:documents], :pre_render do |doc|
+# :nocov:
+Jekyll::Hooks.register [:documents], :pre_render do |doc|
   JekyllMiscellaneous::Hooks::Mark.process(doc)
 end
+# :nocov:

@@ -8,10 +8,8 @@ describe JekyllMiscellaneous::Filters::HashColor do
   describe '#hash_color' do
     let(:content) { '{{ "foo" | hash_color }}' }
 
-    before { allow_any_instance_of(described_class).to receive(:hash_code) { 360 } }
-
     it 'returns a hash color' do
-      expect(output).to eq('hsl(0, 100%, 90%)')
+      expect(output).to eq('hsl(54, 100%, 90%)')
     end
   end
 end
