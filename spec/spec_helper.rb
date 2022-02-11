@@ -10,7 +10,7 @@ SimpleCov.start
 
 require 'liquid'
 require 'nokogiri'
-require 'jekyll-miscellaneous'
+require 'jekyll_miscellaneous'
 
 RSpec.configure do |config|
   config.filter_run_when_matching :focus

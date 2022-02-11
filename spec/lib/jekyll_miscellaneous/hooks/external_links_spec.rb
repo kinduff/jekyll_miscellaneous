@@ -7,8 +7,8 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
     let(:layout) { 'default' }
     let(:data) { { 'layout' => layout } }
     let(:config) { { 'base_url' => 'https://kinduff.com' } }
-    let(:site) { double(:site, config: config) }
-    let(:resource) { double(:resource, data: data, site: site, content: content) }
+    let(:site) { instance_double('site', config: config) }
+    let(:resource) { instance_double('resource', data: data, site: site, content: content) }
     let(:content) { '' }
 
     before do
@@ -20,7 +20,7 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
       let(:layout) { nil }
 
       it 'does nothing' do
-        expect(resource).to_not receive(:output=)
+        expect(resource).not_to receive(:output=)
         expect(described_class.process(resource)).to be_nil
       end
     end
@@ -29,7 +29,7 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
       before { allow(resource).to receive(:asset_file?).and_return(true) }
 
       it 'does nothing' do
-        expect(resource).to_not receive(:output=)
+        expect(resource).not_to receive(:output=)
         expect(described_class.process(resource)).to be_nil
       end
     end
@@ -38,11 +38,15 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
       context 'and href is a relative URL' do
         let(:content) { '<a href="/kinduff">kinduff.com</a>' }
 
-        it 'does nothing' do
+        it 'does not add rel and target' do
           output = described_class.process(resource)
-          expect(output).to_not include('rel="external"')
-          expect(output).to_not include('target="blank"')
-          expect(output).to_not include('⧉')
+          expect(output).not_to include('rel="external"')
+          expect(output).not_to include('target="blank"')
+        end
+
+        it 'does not add ⧉ to the image' do
+          output = described_class.process(resource)
+          expect(output).not_to include('⧉')
         end
       end
 
@@ -54,6 +58,10 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
             output = described_class.process(resource)
             expect(output).to include('rel="external"')
             expect(output).to include('target="_blank"')
+          end
+
+          it 'adds ⧉ to the image' do
+            output = described_class.process(resource)
             expect(output).to include('⧉')
           end
 
@@ -68,7 +76,7 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
 
             it 'does not add ⧉ to the image' do
               output = described_class.process(resource)
-              expect(output).to_not include('⧉')
+              expect(output).not_to include('⧉')
             end
           end
 
@@ -83,7 +91,7 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
 
             it 'does not add ⧉ to the image' do
               output = described_class.process(resource)
-              expect(output).to_not include('⧉')
+              expect(output).not_to include('⧉')
             end
           end
         end
@@ -93,9 +101,9 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
 
           it 'does nothing' do
             output = described_class.process(resource)
-            expect(output).to_not include('rel="external"')
-            expect(output).to_not include('target="_blank"')
-            expect(output).to_not include('⧉')
+            expect(output).not_to include('rel="external"')
+            expect(output).not_to include('target="_blank"')
+            expect(output).not_to include('⧉')
           end
         end
       end

@@ -3,8 +3,8 @@
 require 'spec_helper'
 
 describe JekyllMiscellaneous::Hooks::Mark do
-  let(:doc) { double(:doc, content: content )}
-  let(:content) { 'foo ==hello== bar ==candy=='.dup }
+  let(:doc) { instance_double('doc', content: content) }
+  let(:content) { +'foo ==hello== bar ==candy==' }
 
   describe '#process' do
     before { described_class.process(doc) }

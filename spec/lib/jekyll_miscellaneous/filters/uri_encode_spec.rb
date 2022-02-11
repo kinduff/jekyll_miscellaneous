@@ -7,7 +7,7 @@ describe JekyllMiscellaneous::Filters::URIEncode do
   let(:decoded) { 'foo' }
   let(:encoded) { 'candy' }
 
-  context '#base64_encode' do
+  describe '#base64_encode' do
     let(:content) { "{{ '#{decoded}' | uri_encode }}" }
 
     before { allow(URI).to receive(:encode_www_form_component).with(decoded) { encoded } }
