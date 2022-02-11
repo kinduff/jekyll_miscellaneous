@@ -3,8 +3,17 @@
 module JekyllMiscellaneous
   module Filters
     module URIEncode
-      def uri_encode(url)
-        URI.encode_www_form_component(url)
+      # Encodes a string to URI, and returns the result.
+      #
+      # == Parameters:
+      # input::
+      #   The string to encode.
+      #
+      # == Returns:
+      # The URI encoded string.
+      #
+      def uri_encode(input)
+        URI.encode_www_form_component(input)
       end
     end
   end

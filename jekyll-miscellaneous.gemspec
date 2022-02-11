@@ -5,8 +5,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'jekyll-miscellaneous/version'
 Gem::Specification.new do |spec|
   spec.name          = 'jekyll-miscellaneous'
-  spec.summary       = 'Collection of plugins I use on my applications'
-  spec.description   = 'Collection of plugins I use on my applications'
+  spec.summary       = 'Collection of custom plugins I use on Jekyll sites'
+  spec.description   = 'Collection of custom plugins I use on Jekyll sites.'
   spec.version       = JekyllMiscellaneous::VERSION
   spec.authors       = ['Alejandro AR']
   spec.email         = ['kinduff@protonmail.com']

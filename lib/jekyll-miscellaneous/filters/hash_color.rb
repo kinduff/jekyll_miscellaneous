@@ -3,16 +3,19 @@
 module JekyllMiscellaneous
   module Filters
     module HashColor
+      # Returns a string with the hexadecimal color code of the hash.
+      #
+      # == Parameters:
+      # input::
+      #   The hash to get the hexadecimal color code from.
+      #
+      # == Returns:
+      # The hexadecimal color code of the hash.
+      #
       def hash_color(input)
-        "hsl(#{hash_code(input) % 360}, 100%, 90%)"
-      end
-
-      private
-
-      def hash_code(input)
         hash = 0
         input.each_byte { |c| hash = c + ((hash << 5) - hash) }
-        hash
+        "hsl(#{hash % 360}, 100%, 90%)"
       end
     end
   end
