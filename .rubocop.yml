@@ -1,0 +1,27 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - '.git/**/*'
+    - 'bin/*'
+  SuggestExtensions: false
+
+Metrics/BlockLength:
+  IgnoredMethods: ['describe', 'context']
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/MessageSpies:
+  Enabled: false
+RSpec/NestedGroups:
+  Enabled: false
+RSpec/ContextWording:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
