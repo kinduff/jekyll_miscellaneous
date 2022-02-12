@@ -1,6 +1,6 @@
 # Jekyll Miscellaneous
 
-[![Gem Version](https://badge.fury.io/rb/jekyll_miscellaneous.svg)](https://badge.fury.io/rb/jekyll_miscellaneous)
+[![Gem Version](https://badge.fury.io/rb/jekyll_miscellaneous.svg)](https://badge.fury.io/rb/jekyll_miscellaneous) [![codecov](https://codecov.io/gh/kinduff/jekyll_miscellaneous/branch/main/graph/badge.svg?token=VWB60QW0UV)](https://codecov.io/gh/kinduff/jekyll_miscellaneous)
 
 A collection of opinionated plugins for Jekyll.
 

@@ -2,10 +2,14 @@
 
 require 'simplecov'
 require 'simplecov-console'
+require 'codecov'
 
 SimpleCov::Formatter::Console.show_covered = true
 SimpleCov.minimum_coverage(100)
-SimpleCov.formatter = SimpleCov::Formatter::Console
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+  SimpleCov::Formatter::Codecov
+])
 SimpleCov.start
 
 require 'liquid'
