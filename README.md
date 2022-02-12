@@ -1,5 +1,7 @@
 # Jekyll Miscellaneous
 
+[![Gem Version](https://badge.fury.io/rb/jekyll_miscellaneous.svg)](https://badge.fury.io/rb/jekyll_miscellaneous)
+
 A collection of opinionated plugins for Jekyll.
 
 ## How to install
@@ -185,7 +187,7 @@ Will output:
 
 More in the documentation.
 
-#### Mark
+### Mark
 
 Given:
 
