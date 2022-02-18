@@ -46,7 +46,7 @@ More to come.
 Given:
 
 ```liquid
-{% youtube "dQw4w9WgXcQ" %}
+{% youtube dQw4w9WgXcQ %}
 ```
 
 Will output:
