@@ -69,6 +69,7 @@ module JekyllMiscellaneous
 
           a.set_attribute('rel', 'external')
           a.set_attribute('target', '_blank')
+          a.set_attribute('rel', 'noopener')
 
           next if a.children.size.positive? && a.children.map(&:name).include?('img')
           next if a.get_attribute('class')&.include?('skip-external')
