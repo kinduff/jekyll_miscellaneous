@@ -8,13 +8,15 @@ module JekyllMiscellaneous
       # == Parameters:
       # tag_name::
       #   The name of the tag.
-      # id::
-      #   The ID of the YouTube video.
+      # markup::
+      #   The markup inside the tag.
       # tokens::
       #   The tokens to parse.
-      def initialize(tag_name, id, tokens)
+      def initialize(tag_name, markup, tokens)
         super
-        @id = id.strip
+        args = markup.split
+        @id = args[0].strip
+        @use_nocookie = args[1] && args[1].strip.downcase == 'nocookie'
       end
 
       # Render the YouTube tag.
@@ -25,8 +27,15 @@ module JekyllMiscellaneous
       # == Example:
       #   {% youtube "dQw4w9WgXcQ" %}
       #   <div class="youtube-container"><iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"></iframe></div>
+      #
+      #   {% youtube "dQw4w9WgXcQ" nocookie %}
+      #   <div class="youtube-container"><iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"></iframe></div>
+      #
+      #   {% youtube "dQw4w9WgXcQ" normal %}
+      #   <div class="youtube-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe></div>
       def render(_context)
-        "<div class='youtube-container'><iframe src=\"https://www.youtube-nocookie.com/embed/#{@id}\"></iframe></div>"
+        domain = @use_nocookie ? "www.youtube-nocookie.com" : "www.youtube.com"
+        "<div class='youtube-container'><iframe src=\"https://#{domain}/embed/#{@id}\"></iframe></div>"
       end
     end
   end

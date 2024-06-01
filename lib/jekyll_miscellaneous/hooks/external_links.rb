@@ -67,7 +67,6 @@ module JekyllMiscellaneous
           next unless /\Ahttp/i.match?(a.get_attribute('href'))
           next if %r{\Ahttp(s)?://#{site_hostname}}i.match?(a.get_attribute('href'))
 
-          a.set_attribute('rel', 'external')
           a.set_attribute('target', '_blank')
           a.set_attribute('rel', 'noopener')
 

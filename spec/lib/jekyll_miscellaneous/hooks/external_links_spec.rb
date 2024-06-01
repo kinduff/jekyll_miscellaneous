@@ -40,7 +40,7 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
 
         it 'does not add rel and target' do
           output = described_class.process(resource)
-          expect(output).not_to include('rel="external"')
+          expect(output).not_to include('rel="noopener"')
           expect(output).not_to include('target="blank"')
         end
 
@@ -54,9 +54,9 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
         context 'and href does not match host' do
           let(:content) { '<a href="https://example.com">example.com</a>' }
 
-          it 'adds rel="external" and target="_blank" to the link' do
+          it 'adds rel="noopener" and target="_blank" to the link' do
             output = described_class.process(resource)
-            expect(output).to include('rel="external"')
+            expect(output).to include('rel="noopener"')
             expect(output).to include('target="_blank"')
           end
 
@@ -68,9 +68,9 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
           context 'and content has an image' do
             let(:content) { '<a href="https://example.com"><img src="" /></a>' }
 
-            it 'adds rel="external" and target="_blank" to the link' do
+            it 'adds rel="noopener" and target="_blank" to the link' do
               output = described_class.process(resource)
-              expect(output).to include('rel="external"')
+              expect(output).to include('rel="noopener"')
               expect(output).to include('target="_blank"')
             end
 
@@ -83,9 +83,9 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
           context 'and link has a class of skip-external' do
             let(:content) { '<a href="https://example.com" class="skip-external">example.com</a>' }
 
-            it 'adds rel="external" and target="_blank" to the link' do
+            it 'adds rel="noopener" and target="_blank" to the link' do
               output = described_class.process(resource)
-              expect(output).to include('rel="external"')
+              expect(output).to include('rel="noopener"')
               expect(output).to include('target="_blank"')
             end
 
@@ -101,7 +101,7 @@ describe JekyllMiscellaneous::Hooks::ExternalLinks do
 
           it 'does nothing' do
             output = described_class.process(resource)
-            expect(output).not_to include('rel="external"')
+            expect(output).not_to include('rel="noopener"')
             expect(output).not_to include('target="_blank"')
             expect(output).not_to include('⧉')
           end
