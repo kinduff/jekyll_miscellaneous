@@ -17,7 +17,7 @@ module JekyllMiscellaneous
       #   =='Hello, World!'==
       #   <mark>Hello, World!</mark>
       def self.process(doc)
-        doc.content.gsub!(/==+(\w(.*?)?[^ .=]?)==+/, '<mark>\\1</mark>')
+        doc.content.gsub!(/==+([^=]+)==+/, '<mark>\\1</mark>')
       end
     end
   end
